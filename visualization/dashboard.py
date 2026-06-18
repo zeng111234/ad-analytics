@@ -240,7 +240,7 @@ def create_time_series_chart(df):
     fig.update_yaxes(title_text="成本 (¥)", row=2, col=1)
     fig.update_yaxes(title_text="点击率", row=2, col=2, tickformat='.2%')
     
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width='stretch')
 
 def create_dimension_analysis(df):
     """创建维度分析图表"""
@@ -285,7 +285,7 @@ def create_dimension_analysis(df):
             title=f'各{dimension}展示量分布',
             hole=0.3
         )
-        st.plotly_chart(fig_pie, use_container_width=True)
+        st.plotly_chart(fig_pie, width='stretch')
     
     with col2:
         # 点击率对比柱状图
@@ -298,7 +298,7 @@ def create_dimension_analysis(df):
             text_auto='.2%'
         )
         fig_bar.update_layout(yaxis_tickformat='.2%')
-        st.plotly_chart(fig_bar, use_container_width=True)
+        st.plotly_chart(fig_bar, width='stretch')
     
     # 详细数据表格
     st.subheader(f"各{dimension}详细数据")
@@ -320,7 +320,7 @@ def create_dimension_analysis(df):
     }
     display_data = display_data.rename(columns=column_names)
     
-    st.dataframe(display_data, use_container_width=True)
+    st.dataframe(display_data, width='stretch')
 
 def create_performance_scatter(df):
     """创建效果散点图"""
@@ -368,7 +368,7 @@ def create_performance_scatter(df):
         }
     )
     
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width='stretch')
 
 def create_anomaly_detection(df):
     """创建异常检测图表"""
@@ -469,7 +469,7 @@ def create_anomaly_detection(df):
         height=500
     )
     
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width='stretch')
     
     # 显示异常统计
     if not anomalies.empty:
